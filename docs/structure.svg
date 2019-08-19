@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="410 223 921 389" width="921" height="389">
+  <defs>
+    <font-face font-family="Helvetica Neue" font-size="16" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <font-face font-family="Helvetica Neue" font-size="12" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.11.1 
+    <dc:date>2019-08-17 17:58:55 +0000</dc:date>
+  </metadata>
+  <g id="Struktur_Consent_Service" stroke-dasharray="none" fill="none" stroke-opacity="1" fill-opacity="1" stroke="none">
+    <title>Struktur Consent Service</title>
+    <rect fill="white" x="410" y="223" width="921" height="389"/>
+    <g id="Struktur_Consent_Service: Ebene 2">
+      <title>Ebene 2</title>
+      <g id="Graphic_9">
+        <path d="M 410.82193 223.93704 L 1152.3113 223.8348 M 1152.1605 223.6292 L 1152.1962 528.95096 M 1152.3343 528.7774 L 410.8253 528.6603 M 410.9818 528.823 L 411.02366 223.69602 M 410.8532 223.9039 L 1152.1917 223.78077 M 1152.2022 223.59795 L 1152.2377 528.7461 M 1152.3655 528.7514 L 411.0131 528.6398 M 410.9943 528.79176 L 411.0543 223.90576" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      </g>
+      <g id="Graphic_10">
+        <text transform="translate(416.02363 228.937)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="4689582e-19" y="15">Docker Container</tspan>
+        </text>
+      </g>
+    </g>
+    <g id="Struktur_Consent_Service: Ebene 1">
+      <title>Ebene 1</title>
+      <g id="Graphic_2">
+        <rect x="477.6378" y="323.1496" width="229.6063" height="123.30709" fill="white"/>
+        <path d="M 477.2978 323.14986 L 707.78295 322.9789 M 707.45065 322.619 L 707.3354 446.7339 M 707.6509 446.51257 L 477.4075 446.6409 M 477.65415 447.1023 L 477.63774 322.729 M 477.3603 323.03727 L 707.5128 322.90304 M 707.5749 322.55655 L 707.44765 446.4503 M 707.7134 446.4832 L 477.7166 446.63184 M 477.7043 447.0398 L 477.6808 323.0871" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_3">
+        <text transform="translate(482.6378 328.1496)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="0" y="15">gunicorn</tspan>
+        </text>
+      </g>
+      <g id="Graphic_4">
+        <rect x="534.74804" y="354.9527" width="172.49606" height="91.504" fill="white"/>
+        <path d="M 534.6042 354.95267 L 707.6449 354.9869 M 707.3211 354.71923 L 707.331 446.78443 M 707.6887 446.6348 L 534.23806 446.44423 M 534.6642 446.59947 L 534.7482 354.7824 M 534.66674 354.8444 L 707.3836 354.88372 M 707.39795 354.65672 L 707.408 446.5719 M 707.7512 446.59005 L 534.72686 446.3909 M 534.7072 446.53695 L 534.7784 354.89017" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_5">
+        <rect x="534.74804" y="418.0087" width="91.504" height="28.447998" fill="white"/>
+        <path d="M 533.9066 418.0108 L 626.91555 417.77997 M 626.2824 417.33894 L 625.90906 447.4126 M 626.304 446.43463 L 534.3234 446.2352 M 534.98384 446.6144 L 534.7442 417.54347 M 534.0315 417.86103 L 626.4016 417.54835 M 626.5137 417.21526 L 626.1027 446.3095 M 626.42885 446.3922 L 535.1055 446.2091 M 535.06255 446.4898 L 534.7962 417.88433" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(539.74804 423.0087)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="5.943999" y="15">REST API</tspan>
+        </text>
+      </g>
+      <g id="Graphic_6">
+        <rect x="848.9764" y="323.1496" width="229.6063" height="123.30709" fill="white"/>
+        <path d="M 848.6537 323.14927 L 1078.8454 323.38866 M 1078.5303 323.2133 L 1078.6655 446.70997 M 1079.0651 446.2561 L 848.5617 446.24863 M 848.7924 446.47164 L 848.9768 322.85465 M 848.7163 323.0453 L 1078.593 323.32073 M 1078.6223 323.15075 L 1078.7694 446.19354 M 1079.1276 446.19593 L 848.8552 446.21243 M 848.8282 446.4091 L 848.9942 323.08704" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(853.9764 375.57915)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="58.683154" y="15">Shibboleth SP</tspan>
+        </text>
+      </g>
+      <g id="Graphic_7">
+        <text transform="translate(539.74804 359.9527)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="4121148e-19" y="15">docker app</tspan>
+        </text>
+      </g>
+      <g id="Graphic_8">
+        <rect x="656.2205" y="354.9527" width="51.02362" height="91.504" fill="white"/>
+        <path d="M 656.2215 446.70965 L 655.8553 354.22723 M 654.9427 354.8401 L 708.165 354.79414 M 707.3968 353.90973 L 707.6794 447.46993 M 708.2593 446.65065 L 655.3812 446.45357 M 656.27215 446.58494 L 655.9185 354.71458 M 655.0677 354.6258 L 707.52445 354.65597 M 707.62065 353.78443 L 707.8897 446.5232 M 708.3841 446.5935 L 656.34505 446.4464" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(663.2843 441.4567) rotate(-90)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="29.784" y="15">My </tspan>
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="10.671999" y="33.448">Consent</tspan>
+        </text>
+      </g>
+      <g id="Line_11">
+        <line x1="1237" y1="383.4007" x2="1088.4826" y2="384.16304" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_12">
+        <text transform="translate(1247.9921 370.46715)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="23.784" y="11">HTTP</tspan>
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="0" y="25.336">Load Balancer</tspan>
+        </text>
+      </g>
+      <g id="Line_13">
+        <line x1="580.50004" y1="578" x2="580.50004" y2="457.3567" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_14">
+        <line x1="848.9764" y1="391.27564" x2="718.1284" y2="398.6527" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_15">
+        <text transform="translate(557.49604 591.77166)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="8171241e-19" y="11">SATOSA</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
