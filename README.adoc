@@ -1,0 +1,46 @@
+# Simple Consent for Attribute Release
+
+Web Service including GUI to obtain, store and maintain user consent.
+The primary purpose is to provide a consent service to SATOSA:
+
+- Consent is all or nothing (no attribute selection)
+- Can store consent to release attributes for relying parties
+- No grouping of related relying parties, consent is always specific to an entity
+- Plug & play integration for SATOSA
+- "Manage my consent" is an WebSSO-authenticated application allowing the user to revoke and review current and revoked consent.
+  It has an admin function to search and review consent records of all users.
+
+
+.flow "happy path"
+image::docs/flow.svg[]
+
+
+## Structure
+
+.Internal structure
+image::docs/structure.svg[]
+
+The project provides three interfaces:
+1. A REST API call that will decide if a user at a particular party has a valid consent.
+2. A redirect endpoint that will 
+
+
+## Persistence
+
+Using the standard Django ORM a number of databases are supported.
+
+
+## Deployment
+
+The recommended deployment uses the docker image provided in the github repo d-simpleconsent.
+The single image containers both the django app and the Shibboleth SP.
+
+
+## Access control and security considerations
+
+* The API endpoint relies on network protection. 
+  Therefore access must be rstricted to SATOSA.
+* The redirect endpoint is protected against XSS using a CSRF cookie.
+* The "Manage my consent" service is registered as a relying party.
+  It is grouped with a Shbboleth SP in the related docker project to require a valid session. 
+  It requires an active the userid attribute to link to consent records, too.  
