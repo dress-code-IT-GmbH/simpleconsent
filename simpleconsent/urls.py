@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from consent.views import has_consent
+from consent.views import has_consent, display_consent_request, accept_consent
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('has_consent/<str:entityid>/<str:userid>/', has_consent, name='has_consent'),
+    path('has_consent/<str:entityid>/<str:userid>/', has_consent),
+    path('request_consent/<str:consent_requ_json>/', display_consent_request),
+    path('accept_consent/<str:consent_requ_json>/', accept_consent),
 ]

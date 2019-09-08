@@ -1,0 +1,11 @@
+    <p>Attributfreigabe für {{ sp }} ({{ entityid }})</p>
+    <ul>
+    {% for attr in attr_list %}
+        <li>{{ attr }}</li>
+    {% endfor %}
+    </ul>
+
+    <p>Datenweitergabe<a href="/accept_consent/xxx/"> einwilligen</a> / <a href="/decline_consent/">ablehnen</a> </p>
+
+    <br>
+    <p><a href="/admin/myconsent">Einwilligungen verwalten</a> </p>
