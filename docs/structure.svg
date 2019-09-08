@@ -1,38 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="410 223 921 389" width="921" height="389">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="254 223 916 461" width="916" height="461">
   <defs>
     <font-face font-family="Helvetica Neue" font-size="16" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
       <font-face-src>
         <font-face-name name="HelveticaNeue"/>
       </font-face-src>
     </font-face>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -4 10 8" markerWidth="10" markerHeight="8" color="black">
-      <g>
-        <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
-      </g>
-    </marker>
     <font-face font-family="Helvetica Neue" font-size="12" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
       <font-face-src>
         <font-face-name name="HelveticaNeue"/>
       </font-face-src>
     </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="UML2Socket_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -7 8 14" markerWidth="8" markerHeight="14" color="black">
+      <g>
+        <path d="M 6 -6 C -1 -6 -1 6 6 6" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="UML2Socket_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-7 -7 8 14" markerWidth="8" markerHeight="14" color="black">
+      <g>
+        <path d="M -6 6 C 1 6 1 -6 -6 -6" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="Ball_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -7 14 14" markerWidth="14" markerHeight="14" color="black">
+      <g>
+        <circle cx="5.999997" cy="0" r="5.99999469736665" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
   </defs>
-  <metadata> Produced by OmniGraffle 7.11.1 
-    <dc:date>2019-08-17 17:58:55 +0000</dc:date>
+  <metadata> Produced by OmniGraffle 7.11.2 
+    <dc:date>2019-09-08 09:29:53 +0000</dc:date>
   </metadata>
-  <g id="Struktur_Consent_Service" stroke-dasharray="none" fill="none" stroke-opacity="1" fill-opacity="1" stroke="none">
-    <title>Struktur Consent Service</title>
-    <rect fill="white" x="410" y="223" width="921" height="389"/>
+  <g id="Struktur_Consent_Service" stroke="none" stroke-opacity="1" stroke-dasharray="none" fill-opacity="1" fill="none">
+    <title>Komponentendiagramm</title>
+    <rect fill="white" x="254" y="223" width="916" height="461"/>
     <g id="Struktur_Consent_Service: Ebene 2">
       <title>Ebene 2</title>
       <g id="Graphic_9">
-        <path d="M 410.82193 223.93704 L 1152.3113 223.8348 M 1152.1605 223.6292 L 1152.1962 528.95096 M 1152.3343 528.7774 L 410.8253 528.6603 M 410.9818 528.823 L 411.02366 223.69602 M 410.8532 223.9039 L 1152.1917 223.78077 M 1152.2022 223.59795 L 1152.2377 528.7461 M 1152.3655 528.7514 L 411.0131 528.6398 M 410.9943 528.79176 L 411.0543 223.90576" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+        <path d="M 410.82193 223.93705 L 989.3192 223.8348 M 989.1683 223.6292 L 989.204 528.95096 M 989.3422 528.7774 L 410.8253 528.6603 M 410.9818 528.823 L 411.02366 223.69602 M 410.8532 223.90392 L 989.1996 223.78077 M 989.2101 223.59795 L 989.2456 528.7461 M 989.3734 528.7514 L 411.0131 528.6398 M 410.9943 528.79176 L 411.0543 223.90576" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
       </g>
       <g id="Graphic_10">
         <text transform="translate(416.02363 228.937)" fill="black">
-          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="4689582e-19" y="15">Docker Container</tspan>
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="0" y="15">Simple Consent Docker Container</tspan>
         </text>
+      </g>
+      <g id="Graphic_28">
+        <path d="M 267.87402 502.5827 L 267.87402 452.6929 C 267.87402 449.2505 285.9704 446.4567 308.26772 446.4567 C 330.56504 446.4567 348.6614 449.2505 348.6614 452.6929 L 348.6614 502.5827 C 348.6614 506.0251 330.56504 508.8189 308.26772 508.8189 C 285.9704 508.8189 267.87402 506.0251 267.87402 502.5827" fill="white"/>
+        <path d="M 267.87396 502.7901 L 267.88737 452.5788 C 267.9175 449.4399 285.607 444.8428 308.26772 446.4567 C 331.86103 446.4701 348.95987 449.43687 348.6614 452.6929 M 348.66102 452.5265 L 348.7812 502.651 C 348.38962 506.3295 330.40015 508.83595 308.26772 508.8189 C 287.1423 509.418 267.88906 505.8339 267.87402 502.5827 M 267.87402 452.6929 C 267.91695 455.89524 286.01177 459.51317 308.26772 458.92914 C 331.16 460.67657 348.92803 456.0371 348.6614 452.6929 M 267.87693 502.75883 L 267.89256 452.65627 C 267.98 449.3774 285.6695 444.7803 308.33022 446.3942 C 331.92353 446.4076 349.02237 449.37437 348.7239 452.6304 M 348.70846 452.4952 L 348.8338 502.50797 C 348.45212 506.267 330.46265 508.77345 308.33022 508.7564 C 287.2048 509.3555 267.95156 505.7714 267.93652 502.5202 M 267.87402 452.6929 C 267.97945 455.83274 286.07427 459.45067 308.33022 458.86664 C 331.2225 460.61407 348.99053 455.9746 348.7239 452.6304" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+        <text transform="translate(272.87402 462.3079)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="9.7617" y="15">Docker</tspan>
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="5.0096996" y="33.448">Volumes</tspan>
+        </text>
+      </g>
+      <g id="Line_29">
+        <line x1="348.6614" y1="467.1924" x2="411.02363" y2="451.0662" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_33">
+        <text transform="translate(272.04572 542.16536)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="0" y="11">Logging &amp;</tspan>
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="0" y="25.336">Configuration</tspan>
+        </text>
+      </g>
+      <g id="Line_34">
+        <line x1="308.26772" y1="537.16536" x2="308.26772" y2="508.8189" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2.0,2.0" stroke-width="1"/>
       </g>
     </g>
     <g id="Struktur_Consent_Service: Ebene 1">
@@ -42,8 +72,8 @@
         <path d="M 477.2978 323.14986 L 707.78295 322.9789 M 707.45065 322.619 L 707.3354 446.7339 M 707.6509 446.51257 L 477.4075 446.6409 M 477.65415 447.1023 L 477.63774 322.729 M 477.3603 323.03727 L 707.5128 322.90304 M 707.5749 322.55655 L 707.44765 446.4503 M 707.7134 446.4832 L 477.7166 446.63184 M 477.7043 447.0398 L 477.6808 323.0871" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
       <g id="Graphic_3">
-        <text transform="translate(482.6378 328.1496)" fill="black">
-          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="0" y="15">gunicorn</tspan>
+        <text transform="translate(481.1578 328.1496)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="831335e-18" y="15">Gunicorn</tspan>
         </text>
       </g>
       <g id="Graphic_4">
@@ -51,51 +81,94 @@
         <path d="M 534.6042 354.95267 L 707.6449 354.9869 M 707.3211 354.71923 L 707.331 446.78443 M 707.6887 446.6348 L 534.23806 446.44423 M 534.6642 446.59947 L 534.7482 354.7824 M 534.66674 354.8444 L 707.3836 354.88372 M 707.39795 354.65672 L 707.408 446.5719 M 707.7512 446.59005 L 534.72686 446.3909 M 534.7072 446.53695 L 534.7784 354.89017" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
       <g id="Graphic_5">
-        <rect x="534.74804" y="418.0087" width="91.504" height="28.447998" fill="white"/>
-        <path d="M 533.9066 418.0108 L 626.91555 417.77997 M 626.2824 417.33894 L 625.90906 447.4126 M 626.304 446.43463 L 534.3234 446.2352 M 534.98384 446.6144 L 534.7442 417.54347 M 534.0315 417.86103 L 626.4016 417.54835 M 626.5137 417.21526 L 626.1027 446.3095 M 626.42885 446.3922 L 535.1055 446.2091 M 535.06255 446.4898 L 534.7962 417.88433" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-        <text transform="translate(539.74804 423.0087)" fill="black">
-          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="5.943999" y="15">REST API</tspan>
+        <rect x="534.74804" y="399.68504" width="53.252" height="46.771654" fill="white"/>
+        <rect x="534.74804" y="399.68504" width="53.252" height="46.771654" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(539.74804 404.62287)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="1.4819995" y="15">REST</tspan>
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="9.185999" y="33.448">API</tspan>
         </text>
       </g>
       <g id="Graphic_6">
-        <rect x="848.9764" y="323.1496" width="229.6063" height="123.30709" fill="white"/>
-        <path d="M 848.6537 323.14927 L 1078.8454 323.38866 M 1078.5303 323.2133 L 1078.6655 446.70997 M 1079.0651 446.2561 L 848.5617 446.24863 M 848.7924 446.47164 L 848.9768 322.85465 M 848.7163 323.0453 L 1078.593 323.32073 M 1078.6223 323.15075 L 1078.7694 446.19354 M 1079.1276 446.19593 L 848.8552 446.21243 M 848.8282 446.4091 L 848.9942 323.08704" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-        <text transform="translate(853.9764 375.57915)" fill="black">
-          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="58.683154" y="15">Shibboleth SP</tspan>
+        <rect x="813.5433" y="323.1496" width="143.1496" height="123.30709" fill="white"/>
+        <path d="M 813.2207 323.14907 L 956.9556 323.38886 M 956.6406 323.2133 L 956.7757 446.70997 M 957.1753 446.2561 L 813.1287 446.24863 M 813.3593 446.47164 L 813.5438 322.85465 M 813.2832 323.0451 L 956.7033 323.32073 M 956.7326 323.15075 L 956.8797 446.19354 M 957.2378 446.19594 L 813.4222 446.21243 M 813.3951 446.4091 L 813.5611 323.08704" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(818.5433 375.57915)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="15.454806" y="15">Shibboleth SP</tspan>
         </text>
       </g>
       <g id="Graphic_7">
-        <text transform="translate(539.74804 359.9527)" fill="black">
-          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="4121148e-19" y="15">docker app</tspan>
+        <text transform="translate(539.15604 359.9527)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="0" y="15">Django app</tspan>
         </text>
       </g>
       <g id="Graphic_8">
         <rect x="656.2205" y="354.9527" width="51.02362" height="91.504" fill="white"/>
-        <path d="M 656.2215 446.70965 L 655.8553 354.22723 M 654.9427 354.8401 L 708.165 354.79414 M 707.3968 353.90973 L 707.6794 447.46993 M 708.2593 446.65065 L 655.3812 446.45357 M 656.27215 446.58494 L 655.9185 354.71458 M 655.0677 354.6258 L 707.52445 354.65597 M 707.62065 353.78443 L 707.8897 446.5232 M 708.3841 446.5935 L 656.34505 446.4464" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <rect x="656.2205" y="354.9527" width="51.02362" height="91.504" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
         <text transform="translate(663.2843 441.4567) rotate(-90)" fill="black">
           <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="29.784" y="15">My </tspan>
           <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="10.671999" y="33.448">Consent</tspan>
         </text>
       </g>
       <g id="Line_11">
-        <line x1="1237" y1="383.4007" x2="1088.4826" y2="384.16304" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line x1="956.6929" y1="370.2702" x2="1016.3944" y2="358.14807" marker-end="url(#UML2Socket_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
-      <g id="Graphic_12">
-        <text transform="translate(1247.9921 370.46715)" fill="black">
-          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="23.784" y="11">HTTP</tspan>
-          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="0" y="25.336">Load Balancer</tspan>
-        </text>
-      </g>
-      <g id="Line_13">
-        <line x1="580.50004" y1="578" x2="580.50004" y2="457.3567" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      </g>
+      <g id="Graphic_12"/>
       <g id="Line_14">
-        <line x1="848.9764" y1="391.27564" x2="718.1284" y2="398.6527" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line x1="751.5" y1="400.7047" x2="708.2441" y2="400.7047" marker-start="url(#UML2Socket_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
-      <g id="Graphic_15">
-        <text transform="translate(557.49604 591.77166)" fill="black">
-          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="8171241e-19" y="11">SATOSA</tspan>
+      <g id="Graphic_15"/>
+      <g id="Graphic_16">
+        <rect x="477.6378" y="583.937" width="229.6063" height="99.2126" fill="white"/>
+        <path d="M 477.4044 583.9371 L 707.2803 583.8178 M 707.1447 583.5867 L 707.274 683.3401 M 707.3923 683.1035 L 477.3563 683.0554 M 477.546 683.15 L 477.6379 583.85285 M 477.43564 583.8959 L 707.1763 583.77906 M 707.1973 583.55544 L 707.3321 683.0722 M 707.4236 683.0974 L 477.5773 683.0501 M 477.57715 683.11875 L 477.6464 583.90574" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+        <text transform="translate(482.6378 624.3193)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="79.13115" y="15">SATOSA</tspan>
         </text>
+      </g>
+      <g id="Graphic_17">
+        <rect x="588.00004" y="399.68504" width="68.22044" height="46.771654" fill="white"/>
+        <rect x="588.00004" y="399.68504" width="68.22044" height="46.771654" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(593.00004 404.62287)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="2.2862219" y="15">request</tspan>
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x=".51022186" y="33.448">consent</tspan>
+        </text>
+      </g>
+      <g id="Graphic_18">
+        <rect x="1062.2835" y="323.1496" width="106.29921" height="66.61417" fill="white"/>
+        <path d="M 1062.1482 323.14963 L 1168.7999 323.13272 M 1168.6692 322.9479 L 1168.6098 389.97954 M 1168.7498 389.7784 L 1062.2996 389.82163 M 1062.392 389.95025 L 1062.2832 323.0031 M 1062.1794 323.11057 L 1168.7003 323.08045 M 1168.7294 322.91666 L 1168.6509 389.74724 M 1168.7811 389.76463 L 1062.423 389.7938 M 1062.4196 389.919 L 1062.2858 323.1184" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+        <text transform="translate(1067.2835 342.1207)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="33.04161" y="11">HTTP</tspan>
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="9.257609" y="25.336">Load Balancer</tspan>
+        </text>
+      </g>
+      <g id="Line_19">
+        <line x1="1062.2835" y1="356.4567" x2="1037.2244" y2="356.4567" marker-end="url(#Ball_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_20">
+        <line x1="813.5433" y1="393.89976" x2="772.4003" y2="399.1287" marker-end="url(#Ball_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_21">
+        <rect x="255.1181" y="323.1496" width="106.29921" height="66.61417" fill="white"/>
+        <path d="M 254.9424 323.1496 L 361.53097 323.1612 M 361.4069 323.04574 L 361.316 389.89244 M 361.3941 389.7448 L 254.89325 389.67446 M 255.02618 389.8544 L 255.11844 322.9096 M 254.97367 323.09814 L 361.438 323.1199 M 361.46283 323.01453 L 361.37763 389.7135 M 361.4253 389.73506 L 255.05767 389.6443 M 255.04837 389.8231 L 255.14218 323.11835" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+        <text transform="translate(260.1181 347.2327)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="14.069609" y="15">Database</tspan>
+        </text>
+      </g>
+      <g id="Line_22">
+        <line x1="371.9806" y1="357.69327" x2="361.41733" y2="357.48825" marker-start="url(#UML2Socket_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_23">
+        <line x1="534.74804" y1="385.3402" x2="392.78526" y2="360.0505" marker-end="url(#Ball_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_24">
+        <line x1="561.37404" y1="467.5" x2="561.37404" y2="447.4567" marker-start="url(#UML2Socket_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_25">
+        <line x1="622.11026" y1="466.5" x2="622.11026" y2="447.4567" marker-start="url(#UML2Socket_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_26">
+        <line x1="582.6588" y1="583.937" x2="563.7924" y2="488.2638" marker-end="url(#Ball_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_27">
+        <line x1="601.7241" y1="583.937" x2="619.81096" y2="487.2867" marker-end="url(#Ball_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
     </g>
   </g>

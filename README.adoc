@@ -17,17 +17,25 @@ image::docs/flow.svg[]
 
 ## Structure
 
-.Internal structure
+.Components
 image::docs/structure.svg[]
 
-The project provides three interfaces:
+.Provided interfaces
 1. A REST API call that will decide if a user at a particular party has a valid consent.
-2. A redirect endpoint that will 
+2. A redirect endpoint to request a new consent from the user using a web GUI
+3. A WebSSO-protected app to manage existing consent
+
+
+.Required interfaces
+1. Database to store consent
+2. Docker volumes
+    ** Gunicorn + Shibboleth logging
+    ** Gunicorn, Shibboleth + Django configuration
 
 
 ## Persistence
 
-Using the standard Django ORM a number of databases are supported.
+Using the standard Django ORM a number of database backends are supported.
 
 
 ## Deployment
@@ -39,7 +47,7 @@ The single image containers both the django app and the Shibboleth SP.
 ## Access control and security considerations
 
 * The API endpoint relies on network protection. 
-  Therefore access must be rstricted to SATOSA.
+  Therefore access must be restricted to SATOSA.
 * The redirect endpoint is protected against XSS using a CSRF cookie.
 * The "Manage my consent" service is registered as a relying party.
   It is grouped with a Shbboleth SP in the related docker project to require a valid session. 
