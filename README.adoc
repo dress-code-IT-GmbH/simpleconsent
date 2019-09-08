@@ -44,11 +44,23 @@ The recommended deployment uses the docker image provided in the github repo d-s
 The single image containers both the django app and the Shibboleth SP.
 
 
+## Configuration
+
+Set DEBUG = False in settings.py for production environments.
+
+
+## API
+
+To verify if an active consent is present a call to this URL path has to be made:
+
+/has_consent/<entityid>/<userid>/
+
+Responses are HTTP codes 200 and 404.
+
 ## Access control and security considerations
 
-* The API endpoint relies on network protection. 
-  Therefore access must be restricted to SATOSA.
+* The API endpoint should be restricted to SATOSA by network protection to protect consent data (low criticality).
 * The redirect endpoint is protected against XSS using a CSRF cookie.
 * The "Manage my consent" service is registered as a relying party.
-  It is grouped with a Shbboleth SP in the related docker project to require a valid session. 
+  It is grouped with a Shibboleth SP in the related docker project to require a valid session.
   It requires an active the userid attribute to link to consent records, too.  
