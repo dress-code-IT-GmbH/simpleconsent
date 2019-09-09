@@ -1,7 +1,7 @@
 from django.contrib import admin
-from django.db import models
 
 from consent.models import Consent
+
 
 @admin.register(Consent)
 class ConsentAdmin(admin.ModelAdmin):

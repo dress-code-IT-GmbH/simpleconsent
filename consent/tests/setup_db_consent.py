@@ -1,8 +1,8 @@
 from pathlib import Path
 from django.core import management
 
-#pytestmark = pytest.mark.django_db  # not working for whatever reason.
-                                     # workaround from https://github.com/pytest-dev/pytest-django/issues/396
+# pytestmark = pytest.mark.django_db  # not working for whatever reason.
+                                      # workaround from https://github.com/pytest-dev/pytest-django/issues/396
 from pytest_django.plugin import _blocking_manager
 from django.db.backends.base.base import BaseDatabaseWrapper
 _blocking_manager.unblock()

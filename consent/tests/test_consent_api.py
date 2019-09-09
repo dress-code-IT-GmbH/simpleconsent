@@ -18,6 +18,7 @@ assert len(Consent.objects.all()) > 0, 'No gvOrganisation data found'
 
 origin = 'http://127.0.0.1:8000'
 
+
 def test_verify_existing():
     entityid = 'xx'
     entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
@@ -43,5 +44,3 @@ def test_verify_revoked():
     url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{userid}/"
     response = requests.request(method='GET', url=url)
     assert response.status_code == 404
-
-

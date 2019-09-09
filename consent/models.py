@@ -1,5 +1,5 @@
-import json
 from django.db import models
+
 
 class Consent(models.Model):
     """
@@ -18,22 +18,6 @@ class Consent(models.Model):
     consent_text = models.TextField(null=False)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Einwilligung vom', )
     revoked_at = models.DateTimeField(null=True, blank=True, auto_now=False, verbose_name='Zurückziehung vom', )
-
-
-#-------
-#    def serialize_json(self):
-#        """ serialize stable values for unit tests """
-#        dictfilt = lambda d, filter: dict([(k, d[k]) for k in d if k in set(filter)])
-#        wanted_keys = (
-#            'userid',
-#            'entityID',
-#            'sp_displayname',
-#            'consent_text',
-#            'created_at',
-#            'revoked_at',
-#    )
-#        self_dict = dictfilt(self.__dict__, wanted_keys)
-#        return json.dumps(self_dict, sort_keys=True, indent=2)
 
     def __str__(self):
         return self.entityID
