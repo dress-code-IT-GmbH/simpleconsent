@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='simpleconsent',
     version='0.0.1',
-    description='Consent srevice for SATOSA',
+    description='Consent service for SATOSA',
     author='r2h2',
     author_email='rh@identinetics.com',
     license='MIT',
@@ -12,7 +12,7 @@ setup(
     package_dir={'': 'src'},
     install_requires=[
         "django",
-        "djangorestframework",
+        "requests",
     ],
     zip_safe=False,
     classifiers=[

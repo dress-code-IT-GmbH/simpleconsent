@@ -37,3 +37,6 @@ class Consent(models.Model):
 
     def __str__(self):
         return self.entityID
+
+    def __repr__(self):
+        return self.entityID

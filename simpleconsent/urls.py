@@ -19,7 +19,7 @@ from consent.views import has_consent, display_consent_request, accept_consent
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('has_consent/<str:entityid>/<str:userid>/', has_consent),
-    path('request_consent/<str:consent_requ_json>/', display_consent_request),
-    path('accept_consent/<str:consent_requ_json>/', accept_consent),
+    path('has_consent/<str:entityid_b64>/<str:userid>/', has_consent),
+    path('request_consent/<str:consent_requ_json_b64>/', display_consent_request),
+    path('accept_consent/<str:consent_requ_json_b64>/', accept_consent),
 ]
