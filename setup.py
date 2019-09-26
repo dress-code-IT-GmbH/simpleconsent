@@ -2,14 +2,13 @@ from setuptools import setup
 
 setup(
     name='simpleconsent',
-    version='0.0.1',
+    version='0.1.0',
     description='Consent service for SATOSA',
     author='r2h2',
     author_email='rh@identinetics.com',
     license='MIT',
     url='https://github.com/identinetics/simpleconsent',
     packages=['simpleconsent', ],
-    package_dir={'': 'src'},
     install_requires=[
         "django",
         "requests",
