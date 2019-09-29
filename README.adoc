@@ -7,8 +7,8 @@ The primary purpose is to provide a consent service to SATOSA:
 - Can store consent to release attributes for relying parties
 - No grouping of related relying parties, consent is always specific to an entity
 - Plug & play integration for SATOSA
-- "Manage my consent" is an WebSSO-authenticated application allowing the user to revoke and review current and revoked consent.
-  It has an admin function to search and review consent records of all users.
+- "Consent Admin" is an locally authenticated application allowing the adminsitrator
+  to revoke and review current and revoked consent for users on request.
 
 
 .flow "happy path"
