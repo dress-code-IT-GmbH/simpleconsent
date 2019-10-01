@@ -10,7 +10,7 @@ setup(
     url='https://github.com/identinetics/simpleconsent',
     packages=['simpleconsent', ],
     install_requires=[
-        "django",
+        "django<3.0",   # avoid 3.0 alpha release
         "requests",
     ],
     zip_safe=False,
