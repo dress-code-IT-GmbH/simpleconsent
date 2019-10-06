@@ -10,7 +10,7 @@ SECRET_KEY = '66_!!m)!ks&v)2cjy)m6+uhtm%0jz7*1+tu@whlebrqsb@b##z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'wpvconsent.vnet']
 
 
 # Application definition
@@ -63,7 +63,7 @@ WSGI_APPLICATION = 'simpleconsent.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'data', 'db.sqlite3'),
     }
 }
 

@@ -4,6 +4,8 @@
 .idea/
 .tox/
 __pycache__
+data/db.sqllite3
+simpleconsent/database_is_initialized
 work/
 
 *.log
