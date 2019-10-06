@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='Consent',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('userid', models.CharField(max_length=200)),
+                ('consentid', models.CharField(max_length=200)),
                 ('entityID', models.CharField(max_length=1024, verbose_name='Identifier der Anwendung')),
                 ('sp_displayname', models.CharField(max_length=80)),
                 ('consent_text', models.TextField()),
@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
             options={
                 'verbose_name': 'Consent Statement',
                 'ordering': ['-created_at'],
-                'unique_together': {('userid', 'entityID', 'revoked_at')},
+                'unique_together': {('consentid', 'entityID', 'revoked_at')},
             },
         ),
     ]

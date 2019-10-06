@@ -24,7 +24,7 @@ origin = 'http://127.0.0.1:8000'
 def test_display_consent_request():
     consent_request = {
         'entityid': 'xx',
-        'userid': 'test_inv_2',
+        'consentid': 'test_inv_2',
         'sp': 'TEST SP1',
         'attr_list': ['first_name', 'last_name', 'email'],
     }

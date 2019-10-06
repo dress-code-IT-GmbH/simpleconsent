@@ -7,10 +7,10 @@ from django.template import loader
 from consent.models import Consent
 
 
-def has_consent(request: HttpRequest, entityid_b64: str, userid: str) -> HttpResponse:
-    """ Test if a consent exists for a given entityID/userid pair and return HTTP status 200 or 404 """
+def has_consent(request: HttpRequest, entityid_b64: str, consentid: str) -> HttpResponse:
+    """ Test if a consent exists for a given entityID/consentid pair and return HTTP status 200 or 404 """
     entityid_bytes = base64.urlsafe_b64decode(entityid_b64.encode('ascii'))
-    _consent = get_object_or_404(Consent, entityID=entityid_bytes.decode('ascii'), userid=userid, revoked_at=None)
+    _consent = get_object_or_404(Consent, entityID=entityid_bytes.decode('ascii'), consentid=consentid, revoked_at=None)
     return HttpResponse(status=200)
 
 
@@ -27,10 +27,10 @@ def accept_consent(request: HttpRequest, consent_requ_json_b64: str) -> HttpResp
     consent_request_json = base64.urlsafe_b64decode(consent_requ_json_b64.encode('ascii'))
     consent_request = json.loads(consent_request_json)
 
-    if len(Consent.objects.filter(entityID=consent_request['entityid'], userid=consent_request['userid'], revoked_at=None)) == 0:
+    if len(Consent.objects.filter(entityID=consent_request['entityid'], consentid=consent_request['consentid'], revoked_at=None)) == 0:
         consent = Consent()
         consent.entityID = consent_request['entityid']
-        consent.userid = consent_request['userid']
+        consent.consentid = consent_request['consentid']
         consent.sp_displayname = consent_request['sp']
         consent.consent_text = ', '.join(consent_request['attr_list'])
         consent.save()

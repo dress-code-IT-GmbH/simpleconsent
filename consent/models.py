@@ -10,9 +10,9 @@ class Consent(models.Model):
     class Meta:
         ordering = ['-created_at']
         verbose_name = 'Consent Statement'
-        unique_together = (('userid', 'entityID', 'revoked_at'), )
+        unique_together = (('consentid', 'entityID', 'revoked_at'), )
 
-    userid = models.CharField(max_length=200)
+    consentid = models.CharField(max_length=200)  # hash(userid + attribut set)
     entityID = models.CharField(null=False, max_length=1024, verbose_name='Identifier der Anwendung')
     sp_displayname = models.CharField(max_length=80)
     consent_text = models.TextField(null=False)

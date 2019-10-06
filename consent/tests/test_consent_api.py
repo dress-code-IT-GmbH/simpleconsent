@@ -22,8 +22,8 @@ origin = 'http://127.0.0.1:8000'
 def test_verify_existing():
     entityid = 'xx'
     entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
-    userid = 'test_inv_2'
-    url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{userid}/"
+    consentid = 'test_inv_2'
+    url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
     response = requests.request(method='GET', url=url)
     assert response.status_code == 200
 
@@ -31,8 +31,8 @@ def test_verify_existing():
 def test_verify_non_existing():
     entityid = 'xx'
     entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
-    userid = 'test_inv_1230982450987'
-    url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{userid}/"
+    consentid = 'test_inv_1230982450987'
+    url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
     response = requests.request(method='GET', url=url)
     assert response.status_code == 404
 
@@ -40,7 +40,7 @@ def test_verify_non_existing():
 def test_verify_revoked():
     entityid = 'https://sp1.example.com/sp'
     entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
-    userid = 'test_invalid'
-    url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{userid}/"
+    consentid = 'test_invalid'
+    url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
     response = requests.request(method='GET', url=url)
     assert response.status_code == 404
