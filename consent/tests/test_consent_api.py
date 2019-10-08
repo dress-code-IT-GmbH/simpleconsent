@@ -1,4 +1,5 @@
 import base64
+import json
 import os
 import requests
 
@@ -16,16 +17,17 @@ setup_db_tables_consent()
 load_testset1()
 assert len(Consent.objects.all()) > 0, 'No gvOrganisation data found'
 
-origin = 'http://127.0.0.1:8000'
+origin = 'http://127.0.0.1:8017'
 
 
 def test_verify_existing():
-    entityid = 'xx'
+    entityid = 'testsp'
     entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
-    consentid = 'test_inv_2'
+    consentid = '398761324012830460876'
     url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
     response = requests.request(method='GET', url=url)
     assert response.status_code == 200
+    assert json.loads(response.text) == True
 
 
 def test_verify_non_existing():
@@ -34,7 +36,8 @@ def test_verify_non_existing():
     consentid = 'test_inv_1230982450987'
     url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
     response = requests.request(method='GET', url=url)
-    assert response.status_code == 404
+    assert response.status_code == 200
+    assert json.loads(response.text) == False
 
 
 def test_verify_revoked():
@@ -43,4 +46,5 @@ def test_verify_revoked():
     consentid = 'test_invalid'
     url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
     response = requests.request(method='GET', url=url)
-    assert response.status_code == 404
+    assert response.status_code == 200
+    assert json.loads(response.text) == False

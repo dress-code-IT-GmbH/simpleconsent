@@ -1,17 +1,20 @@
 import base64
 import json
 from django.conf import settings
-from django.shortcuts import get_object_or_404
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect, HttpRequest, HttpResponse
 from django.template import loader
 from consent.models import Consent
 
 
 def has_consent(request: HttpRequest, entityid_b64: str, consentid: str) -> HttpResponse:
-    """ Test if a consent exists for a given entityID/consentid pair and return HTTP status 200 or 404 """
+    """ Test if a consent exists for a given active entityID/consentid pair """
     entityid_bytes = base64.urlsafe_b64decode(entityid_b64.encode('ascii'))
-    _consent = get_object_or_404(Consent, entityID=entityid_bytes.decode('ascii'), consentid=consentid, revoked_at=None)
-    return HttpResponse(status=200)
+    try:
+        _consent = Consent.objects.get(entityID=entityid_bytes.decode('ascii'), consentid=consentid, revoked_at=None)
+        return HttpResponse('true', status=200)
+    except ObjectDoesNotExist:
+        return HttpResponse('false', status=200)
 
 
 def display_consent_request(request: HttpRequest, consent_requ_json_b64: str) -> HttpResponse:
