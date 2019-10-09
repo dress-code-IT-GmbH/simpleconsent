@@ -21,6 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('has_consent/<str:entityid_b64>/<str:consentid>/', has_consent),
     path('request_consent/<str:consent_requ_json_b64>/', display_consent_request),
-    path('accept_consent/<str:consent_requ_json_b64>/', accept_consent),
+    path('accept_consent/<str:consent_requ_json_b64>/<str:hmac_remote>/', accept_consent),
     path('decline_consent/', decline_consent),
 ]

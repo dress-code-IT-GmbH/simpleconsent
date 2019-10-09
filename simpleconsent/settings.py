@@ -113,3 +113,6 @@ REDIRECT_AFTER_CONSENT = '/admin'
 # Authentication for API user that writes consent records
 BASICAUTH_USERS = {'admin': 'adminadmin'}  # TODO: change weak default password
 BASICAUTH_REALM: 'api_user'
+
+# same key/value in proxy and consent app
+PROXY_HMAC_KEY = b'leMn00UscEDWEtt/vvHs0v/+Wqjxih/WxixZOMLt'

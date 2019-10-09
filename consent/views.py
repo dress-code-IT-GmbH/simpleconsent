@@ -1,4 +1,6 @@
 import base64
+import hashlib
+import hmac
 import json
 
 from basicauth.decorators import basic_auth_required
@@ -29,11 +31,16 @@ def display_consent_request(request: HttpRequest, consent_requ_json_b64: str) ->
     return HttpResponse(contents)
 
 
-def accept_consent(request: HttpRequest, consent_requ_json_b64: str) -> HttpResponse:
+def accept_consent(request: HttpRequest, consent_requ_json_b64: str, hmac_remote: str) -> HttpResponse:
+    # authenticate the proxy initiating this operation with an hmac
     consent_request_json = base64.urlsafe_b64decode(consent_requ_json_b64.encode('ascii'))
+    hmac_local = hmac.new(settings.PROXY_HMAC_KEY, consent_request_json, hashlib.sha256).hexdigest()
+    if hmac_local != hmac_remote:
+        raise Exception('consent_request_json does not have valid (HMAC) signature')
     consent_request = json.loads(consent_request_json)
 
-    if len(Consent.objects.filter(entityID=consent_request['entityid'], consentid=consent_request['consentid'], revoked_at=None)) == 0:
+    if len(Consent.objects.filter(entityID=consent_request['entityid'],
+            consentid=consent_request['consentid'], revoked_at=None)) == 0:
         consent = Consent()
         consent.entityID = consent_request['entityid']
         consent.consentid = consent_request['consentid']
