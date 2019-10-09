@@ -11,6 +11,7 @@ setup(
     packages=['simpleconsent', ],
     install_requires=[
         "django<3.0",   # avoid 3.0 alpha release
+        "django-basicauth",
         "requests",
     ],
     zip_safe=False,

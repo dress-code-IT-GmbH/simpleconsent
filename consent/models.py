@@ -12,6 +12,8 @@ class Consent(models.Model):
         verbose_name = 'Consent Statement'
         unique_together = (('consentid', 'entityID', 'revoked_at'), )
 
+    uid = models.CharField(default='', max_length=50, verbose_name='UserID')
+    displayname = models.CharField(default='', max_length=80)
     consentid = models.CharField(max_length=200)  # hash(userid + attribut set)
     entityID = models.CharField(null=False, max_length=1024, verbose_name='Identifier der Anwendung')
     sp_displayname = models.CharField(max_length=80)

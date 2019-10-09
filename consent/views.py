@@ -1,5 +1,7 @@
 import base64
 import json
+
+from basicauth.decorators import basic_auth_required
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect, HttpRequest, HttpResponse
@@ -7,6 +9,7 @@ from django.template import loader
 from consent.models import Consent
 
 
+@basic_auth_required
 def has_consent(request: HttpRequest, entityid_b64: str, consentid: str) -> HttpResponse:
     """ Test if a consent exists for a given active entityID/consentid pair """
     entityid_bytes = base64.urlsafe_b64decode(entityid_b64.encode('ascii'))

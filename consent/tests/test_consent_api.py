@@ -18,6 +18,7 @@ load_testset1()
 assert len(Consent.objects.all()) > 0, 'No gvOrganisation data found'
 
 origin = 'http://127.0.0.1:8017'
+apicred = ('admin', 'adminadmin')
 
 
 def test_verify_existing():
@@ -26,6 +27,8 @@ def test_verify_existing():
     consentid = '398761324012830460876'
     url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
     response = requests.request(method='GET', url=url)
+    assert response.status_code == 401
+    response = requests.request(method='GET', url=url, auth=apicred)
     assert response.status_code == 200
     assert json.loads(response.text) == True
 
@@ -35,7 +38,7 @@ def test_verify_non_existing():
     entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
     consentid = 'test_inv_1230982450987'
     url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
-    response = requests.request(method='GET', url=url)
+    response = requests.request(method='GET', url=url, auth=apicred)
     assert response.status_code == 200
     assert json.loads(response.text) == False
 
@@ -45,6 +48,6 @@ def test_verify_revoked():
     entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
     consentid = 'test_invalid'
     url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
-    response = requests.request(method='GET', url=url)
+    response = requests.request(method='GET', url=url, auth=apicred)
     assert response.status_code == 200
     assert json.loads(response.text) == False
