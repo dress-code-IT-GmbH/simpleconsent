@@ -30,7 +30,7 @@ def test_verify_existing():
     assert response.status_code == 401
     response = requests.request(method='GET', url=url, auth=apicred)
     assert response.status_code == 200
-    assert json.loads(response.text) == True
+    assert json.loads(response.text) is True
 
 
 def test_verify_non_existing():
@@ -40,7 +40,7 @@ def test_verify_non_existing():
     url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
     response = requests.request(method='GET', url=url, auth=apicred)
     assert response.status_code == 200
-    assert json.loads(response.text) == False
+    assert json.loads(response.text) is False
 
 
 def test_verify_revoked():
@@ -50,4 +50,4 @@ def test_verify_revoked():
     url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
     response = requests.request(method='GET', url=url, auth=apicred)
     assert response.status_code == 200
-    assert json.loads(response.text) == False
+    assert json.loads(response.text) is False

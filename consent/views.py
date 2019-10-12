@@ -16,7 +16,7 @@ def has_consent(request: HttpRequest, entityid_b64: str, consentid: str) -> Http
     """ Test if a consent exists for a given active entityID/consentid pair """
     entityid_bytes = base64.urlsafe_b64decode(entityid_b64.encode('ascii'))
     try:
-        _consent = Consent.objects.get(entityID=entityid_bytes.decode('ascii'), consentid=consentid, revoked_at=None)
+        _ = Consent.objects.get(entityID=entityid_bytes.decode('ascii'), consentid=consentid, revoked_at=None)
         return HttpResponse('true', status=200)
     except ObjectDoesNotExist:
         return HttpResponse('false', status=200)
@@ -25,7 +25,7 @@ def has_consent(request: HttpRequest, entityid_b64: str, consentid: str) -> Http
 def display_consent_request(request: HttpRequest, consent_requ_json_b64: str) -> HttpResponse:
     consent_request_json = base64.urlsafe_b64decode(consent_requ_json_b64.encode('ascii'))
     consent_request = json.loads(consent_request_json)
-    consent_request ['consent_requ_json_b64'] = consent_requ_json_b64  # required for submit link
+    consent_request['consent_requ_json_b64'] = consent_requ_json_b64  # required for submit link
     template = loader.get_template('consent/index.html')
     contents = template.render(consent_request, request)
     return HttpResponse(contents)
@@ -40,7 +40,7 @@ def accept_consent(request: HttpRequest, consent_requ_json_b64: str, hmac_remote
     consent_request = json.loads(consent_request_json)
 
     if len(Consent.objects.filter(entityID=consent_request['entityid'],
-            consentid=consent_request['consentid'], revoked_at=None)) == 0:
+                                  consentid=consent_request['consentid'], revoked_at=None)) == 0:
         consent = Consent()
         consent.entityID = consent_request['entityid']
         consent.consentid = consent_request['consentid']

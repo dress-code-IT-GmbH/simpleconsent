@@ -53,5 +53,5 @@ def test_accept_consent_request():
     assert response.status_code == 200
     # following test does not work because the unit test has a different DB instance than the web app
     # need to believe in manual testing here
-    # q = Consent.objects.filter(consentid=CONSENTID) # for some reason this query fails although the record seems to be in the DB
+    # q = Consent.objects.filter(consentid=CONSENTID)
     # assert len(q) == 1
