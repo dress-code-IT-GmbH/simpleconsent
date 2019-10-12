@@ -9,6 +9,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect, HttpRequest, HttpResponse
 from django.template import loader
 from consent.models import Consent
+from consent.constants import InvalidHmacSignatureException
 
 
 @basic_auth_required
@@ -22,12 +23,17 @@ def has_consent(request: HttpRequest, entityid_b64: str, consentid: str) -> Http
         return HttpResponse('false', status=200)
 
 
-def display_consent_request(request: HttpRequest, consent_requ_json_b64: str) -> HttpResponse:
+def display_consent_request(request: HttpRequest, consent_requ_json_b64: str, hmac_remote: str) -> HttpResponse:
     consent_request_json = base64.urlsafe_b64decode(consent_requ_json_b64.encode('ascii'))
     consent_request = json.loads(consent_request_json)
-    consent_request['consent_requ_json_b64'] = consent_requ_json_b64  # required for submit link
+    template_args = {}
+    template_args['attr_list'] = consent_request['attr_list']
+    template_args['entityid'] = consent_request['entityid']
+    template_args['sp'] = consent_request['sp']
+    template_args['consent_requ_json_b64'] = consent_requ_json_b64  # required for submit link
+    template_args['hmac_remote'] = hmac_remote  # required for submit link
     template = loader.get_template('consent/index.html')
-    contents = template.render(consent_request, request)
+    contents = template.render(template_args, request)
     return HttpResponse(contents)
 
 
@@ -36,12 +42,13 @@ def accept_consent(request: HttpRequest, consent_requ_json_b64: str, hmac_remote
     consent_request_json = base64.urlsafe_b64decode(consent_requ_json_b64.encode('ascii'))
     hmac_local = hmac.new(settings.PROXY_HMAC_KEY, consent_request_json, hashlib.sha256).hexdigest()
     if hmac_local != hmac_remote:
-        raise Exception('consent_request_json does not have valid (HMAC) signature')
+        raise InvalidHmacSignatureException('consent_request_json does not have valid (HMAC) signature')
     consent_request = json.loads(consent_request_json)
 
     if len(Consent.objects.filter(entityID=consent_request['entityid'],
                                   consentid=consent_request['consentid'], revoked_at=None)) == 0:
         consent = Consent()
+        # skip input sanitazation - we trust the signer
         consent.entityID = consent_request['entityid']
         consent.consentid = consent_request['consentid']
         consent.sp_displayname = consent_request['sp']

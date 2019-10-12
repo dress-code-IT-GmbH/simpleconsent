@@ -5,6 +5,12 @@
     {% endfor %}
     </ul>
 
-    <p>Datenweitergabe<a href="/accept_consent/{{ consent_requ_json_b64 }}/"> einwilligen</a> / <a href="/decline_consent/">ablehnen</a> </p>
+    <p>Datenweitergabe
+        <a href="/accept_consent/{{ consent_requ_json_b64 }}/{{ hmac_remote }}/">
+            einwilligen
+        </a>
+        /
+        <a href="/decline_consent/">ablehnen</a>
+    </p>
 
     <br>

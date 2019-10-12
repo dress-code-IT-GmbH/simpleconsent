@@ -1,3 +1,5 @@
+# this file contains secret keys. Protect file or insert values from environment
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -114,5 +116,5 @@ REDIRECT_AFTER_CONSENT = '/admin'
 BASICAUTH_USERS = {'admin': 'adminadmin'}  # TODO: change weak default password
 BASICAUTH_REALM: 'api_user'
 
-# same key/value in proxy and consent app
+# shared secret: configure same ASCII-value in proxy and consent app
 PROXY_HMAC_KEY = b'leMn00UscEDWEtt/vvHs0v/+Wqjxih/WxixZOMLt'
