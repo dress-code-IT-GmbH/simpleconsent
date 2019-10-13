@@ -10,7 +10,6 @@ import django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "simpleconsent.settings_unittest")
 django.setup()
 from django.conf import settings
-from consent.constants import InvalidHmacSignatureException
 from consent.models import Consent
 from consent.tests.setup_db_consent import load_testset1, setup_db_tables_consent
 
@@ -51,8 +50,8 @@ def test_accept_consent_request():
     hmac_str = hmac.new(settings.PROXY_HMAC_KEY, consent_request_json.encode('utf-8'), hashlib.sha256).hexdigest()
     consent_request_json_b64 = base64.urlsafe_b64encode(consent_request_json.encode('ascii'))
     url = f"{origin}/accept_consent/{consent_request_json_b64.decode('ascii')}/{hmac_str}/"
-    response = requests.request(method='GET', url=url)
-    assert response.status_code == 200
+    response = requests.request(method='GET', url=url, allow_redirects=False)
+    assert response.status_code == 302
     # following test does not work because the unit test has a different DB instance than the web app
     # need to believe in manual testing here
     # q = Consent.objects.filter(consentid=CONSENTID)
@@ -60,4 +59,3 @@ def test_accept_consent_request():
     url = f"{origin}/accept_consent/{consent_request_json_b64.decode('ascii')}/{'x' + hmac_str[1:]}/"
     response = requests.request(method='GET', url=url)
     assert response.status_code == 500
-

@@ -12,7 +12,7 @@ SECRET_KEY = '66_!!m)!ks&v)2cjy)m6+uhtm%0jz7*1+tu@whlebrqsb@b##z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', 'wpvconsent.vnet']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', 'wpvconsent.vnet', 'consent.wko.at', 'consent.qss.wko.at']
 
 
 # Application definition
@@ -109,8 +109,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
-# redirect to URL after the use accepted or declined consent
-REDIRECT_AFTER_CONSENT = '/admin'
 
 # Authentication for API user that writes consent records
 BASICAUTH_USERS = {'admin': 'adminadmin'}  # TODO: change weak default password
@@ -118,3 +116,5 @@ BASICAUTH_REALM: 'api_user'
 
 # shared secret: configure same ASCII-value in proxy and consent app
 PROXY_HMAC_KEY = b'leMn00UscEDWEtt/vvHs0v/+Wqjxih/WxixZOMLt'
+# redirect to URL after the use accepted or declined consent
+PROXY_HANDLE_CONSENT_RESPONSE_URL = 'https://satosa.vnet/simpleconsent_response'

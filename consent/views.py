@@ -49,14 +49,16 @@ def accept_consent(request: HttpRequest, consent_requ_json_b64: str, hmac_remote
                                   consentid=consent_request['consentid'], revoked_at=None)) == 0:
         consent = Consent()
         # skip input sanitazation - we trust the signer
+        consent.displayname = consent_request['displayname']
         consent.entityID = consent_request['entityid']
         consent.consentid = consent_request['consentid']
         consent.sp_displayname = consent_request['sp']
+        consent.uid = consent_request['mail']
         consent.consent_text = ', '.join(consent_request['attr_list'])
         consent.save()
 
-    return HttpResponseRedirect(settings.REDIRECT_AFTER_CONSENT)
+    return HttpResponseRedirect(settings.PROXY_HANDLE_CONSENT_RESPONSE_URL)
 
 
 def decline_consent(request: HttpRequest) -> HttpResponse:
-    return HttpResponseRedirect(settings.REDIRECT_AFTER_CONSENT)
+    return HttpResponseRedirect(settings.PROXY_HANDLE_CONSENT_RESPONSE_URL)
