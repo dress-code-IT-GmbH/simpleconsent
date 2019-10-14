@@ -32,6 +32,9 @@ def display_consent_request(request: HttpRequest, consent_requ_json_b64: str, hm
     template_args['sp'] = consent_request['sp']
     template_args['consent_requ_json_b64'] = consent_requ_json_b64  # required for submit link
     template_args['hmac_remote'] = hmac_remote  # required for submit link
+    template_args['purpose'] = settings.CONSENT_BOILERPLATE_TEXT['purpose']
+    template_args['revocation'] = settings.CONSENT_BOILERPLATE_TEXT['revocation']
+    template_args['title'] = settings.CONSENT_BOILERPLATE_TEXT['title']
     template = loader.get_template('consent/index.html')
     contents = template.render(template_args, request)
     return HttpResponse(contents)
@@ -55,6 +58,7 @@ def accept_consent(request: HttpRequest, consent_requ_json_b64: str, hmac_remote
         consent.sp_displayname = consent_request['sp']
         consent.uid = consent_request['mail']
         consent.consent_text = ', '.join(consent_request['attr_list'])
+
         consent.save()
 
     return HttpResponseRedirect(settings.PROXY_HANDLE_CONSENT_RESPONSE_URL)

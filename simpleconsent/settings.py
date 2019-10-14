@@ -14,6 +14,64 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', 'wpvconsent.vnet', 'consent.wko.at', 'consent.qss.wko.at']
 
+# Database
+# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'data', 'db.sqlite3'),
+    }
+}
+
+# Internationalization
+# https://docs.djangoproject.com/en/2.2/topics/i18n/
+
+LANGUAGE_CODE = 'de-AT'
+TIME_ZONE = 'Europe/Vienna'
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+
+# Authentication for API user that writes consent records
+BASICAUTH_USERS = {'admin': 'adminadmin'}  # TODO: change weak default password
+BASICAUTH_REALM: 'api_user'
+# shared secret: configure same ASCII-value in proxy and consent app
+PROXY_HMAC_KEY = b'leMn00UscEDWEtt/vvHs0v/+Wqjxih/WxixZOMLt'
+# redirect to URL after the use accepted or declined consent
+PROXY_HANDLE_CONSENT_RESPONSE_URL = 'https://satosa.vnet/simpleconsent_response'
+CONSENT_BOILERPLATE_TEXT = {
+    'purpose': 'Der Zweck der Datenweitergabe ist die Identifikation am ausgewählten Service. '
+               'Wird keine Einwilligung gegeben, kann das Service, an das die Anmeldedaten übermittelt werden, '
+               'möglicherweise die Anmeldung ablehnen.',
+    'revocation': 'Die Einwilligung kann jederzeit widerrufen werden. '
+                  'Bitte kontaktieren Sie dazu das Support Team der WKO Inhouse unter QuS@inhouse.wko.at '
+                  'und der Angabe Ihres Namens und Ihrer Benutzerkennung. '
+                  'Wird die Einwilligun widerrufen, erfolgt beim nächsten Login die Abfrage der Einwilligung.',
+    'title': 'Attributfreigabe für die Anmeldung an',
+}
+
+
+# ====== The configuration below should not be changed in regular deployments ======
+
+
+# Password validation
+# https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
 
 # Application definition
 
@@ -58,63 +116,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'simpleconsent.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'data', 'db.sqlite3'),
-    }
-}
-
-
-# Password validation
-# https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
-
-
-# Internationalization
-# https://docs.djangoproject.com/en/2.2/topics/i18n/
-
-LANGUAGE_CODE = 'de-AT'
-
-TIME_ZONE = 'Europe/Vienna'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
-
-
-# Authentication for API user that writes consent records
-BASICAUTH_USERS = {'admin': 'adminadmin'}  # TODO: change weak default password
-BASICAUTH_REALM: 'api_user'
-
-# shared secret: configure same ASCII-value in proxy and consent app
-PROXY_HMAC_KEY = b'leMn00UscEDWEtt/vvHs0v/+Wqjxih/WxixZOMLt'
-# redirect to URL after the use accepted or declined consent
-PROXY_HANDLE_CONSENT_RESPONSE_URL = 'https://satosa.vnet/simpleconsent_response'

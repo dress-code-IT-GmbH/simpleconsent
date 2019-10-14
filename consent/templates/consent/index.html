@@ -1,4 +1,4 @@
-    <p>Attributfreigabe für die Anmeldung an {{ sp }} ({{ entityid }})</p>
+    <p>{{ title }} {{ sp }} ({{ entityid }})</p>
     <ul>
     {% for attr in attr_list %}
         <li>{{ attr }}</li>
@@ -12,5 +12,7 @@
         /
         <a href="/decline_consent/">ablehnen</a>
     </p>
+    <p>{{ purpose }}</p>
+    <p>{{ revocation }}</p>
 
     <br>

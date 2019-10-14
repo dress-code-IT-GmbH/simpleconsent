@@ -26,6 +26,8 @@ CONSENTID = 'test_inv_2'
 CONSENT_REQUEST = {
     'entityid': 'xx',
     'consentid': CONSENTID,
+    "displayname": 'Franz Xaver Muster',
+    "mail": 'fxmuster',
     'sp': 'TEST SP1',
     'attr_list': ['first_name', 'last_name', 'email'],
 }
