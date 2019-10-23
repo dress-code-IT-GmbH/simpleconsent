@@ -18,10 +18,25 @@ ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', 'wpvconsent.vnet', 'consen
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'data', 'db.sqlite3'),
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'data', 'db.sqlite3'),
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'master',
+        'HOST': '192.168.0.37',
+        'PORT': '1433',
+        'USER': 'SA',
+        'PASSWORD': 'scott',
+        'OPTIONS': {
+            'host_is_server': True,
+            'driver': 'FreeTDS',
+        }
     }
 }
 
