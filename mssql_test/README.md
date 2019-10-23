@@ -51,7 +51,7 @@ When the files are in place run this command
 /etc/odbc.ini
 
     [WinIstAnders]  
-    Driver = ODBC Driver 17 for SQL Server  
+    Driver = ODBC Driver 13 for SQL Server  
     Server = 192.168.0.37,1433
     UID = SA
     PWD = scott

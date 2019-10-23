@@ -25,10 +25,11 @@ ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', 'wpvconsent.vnet', 'consen
 #    }
 #}
 
+# Setting for django-mssql-backe
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'master',
+        'NAME': 'simpleconsent',
         'HOST': '192.168.0.37',
         'PORT': '1433',
         'USER': 'SA',

@@ -4,7 +4,7 @@ DSN = 'WinIstAnders'
 USER = 'SA'
 PASSWORD = 'scott'
 
-def test_connect():
+def test_connect_via_dsn():
     connect_str = f"DSN={DSN};UID={USER};PWD={PASSWORD}"
     print('connecting to ' + connect_str)
     cnxn = pyodbc.connect(connect_str)
