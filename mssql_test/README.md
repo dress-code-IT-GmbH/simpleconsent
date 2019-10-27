@@ -51,17 +51,17 @@ When the files are in place run this command
 /etc/odbc.ini
 
     [WinIstAnders]  
-    Driver = ODBC Driver 13 for SQL Server  
-    Server = 192.168.0.37,1433
-    UID = SA
-    PWD = scott
+        Driver = ODBC Driver 13 for SQL Server  
+        Server = 192.168.0.37,1433
+        UID = SA
+        PWD = scott
 
 /etc/odbcinst.ini  (set by installation procedure)
 
-    [ODBC Driver 17 for SQL Server]
-    Description=Microsoft ODBC Driver 17 for SQL Server
-    Driver=/opt/microsoft/msodbcsql17/lib64/libmsodbcsql-17.4.so.2.1
-    UsageCount=1
+    [ODBC Driver 13 for SQL Server]
+        Description=Microsoft ODBC Driver 13 for SQL Server
+        Driver=/opt/microsoft/msodbcsql/lib64/libmsodbcsql-13.1.so.9.2
+        UsageCount=1
 
 Test connection:
 

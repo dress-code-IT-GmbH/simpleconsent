@@ -25,7 +25,7 @@ ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', 'wpvconsent.vnet', 'consen
 #    }
 #}
 
-# Setting for django-mssql-backe
+# Setting for django-mssql-backend
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
@@ -36,7 +36,8 @@ DATABASES = {
         'PASSWORD': 'scott',
         'OPTIONS': {
             'host_is_server': True,
-            'driver': 'FreeTDS',
+            #'driver': 'FreeTDS',
+            'driver': 'ODBC Driver 13 for SQL Server',
         }
     }
 }
