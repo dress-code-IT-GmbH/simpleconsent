@@ -1,0 +1,29 @@
+.customButton {
+    border: 1px solid #e20613;
+    background: #e20613;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    padding: 7px 14px 4px;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    line-height: 1.5;
+    height: inherit;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+    .customButton:hover,
+    .customButton:focus {
+        background-color: #b0050f;
+    }
+
+#references {
+    clear: both;
+    padding: 28px 25px 15px;
+    background: #eaeaea;
+    font-size: 0.9em;
+}

@@ -1,3 +1,11 @@
+ <!DOCTYPE html>
+<html lang="de">
+<meta charset="utf-8">
+<head>
+    <title>Request Consent</title>
+    <!--link rel="stylesheet" type="text/css" href="css/style.css"-->
+</head>
+<body>
     <p>{{ title }} {{ sp }} ({{ entityid }})</p>
     <ul>
     {% for attr in attr_list %}
@@ -5,14 +13,16 @@
     {% endfor %}
     </ul>
 
-    <p>Datenweitergabe
+    <p>Transfer of your user attributes for login
         <a href="/accept_consent/{{ consent_requ_json_b64 }}/{{ hmac_remote }}/">
-            einwilligen
+            agree
         </a>
         /
-        <a href="/decline_consent/">ablehnen</a>
+        <a href="/decline_consent/">decline</a>
     </p>
     <p>{{ purpose }}</p>
     <p>{{ revocation }}</p>
 
     <br>
+</body>
+</html>

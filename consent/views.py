@@ -2,12 +2,14 @@ import base64
 import hashlib
 import hmac
 import json
+import os
+import pathlib
 
 from basicauth.decorators import basic_auth_required
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect, HttpRequest, HttpResponse
-from django.template import loader
+from jinja2 import Template
 from consent.models import Consent
 from consent.constants import InvalidHmacSignatureException
 
@@ -35,8 +37,9 @@ def display_consent_request(request: HttpRequest, consent_requ_json_b64: str, hm
     template_args['purpose'] = settings.CONSENT_BOILERPLATE_TEXT['purpose']
     template_args['revocation'] = settings.CONSENT_BOILERPLATE_TEXT['revocation']
     template_args['title'] = settings.CONSENT_BOILERPLATE_TEXT['title']
-    template = loader.get_template('consent/index.html')
-    contents = template.render(template_args, request)
+    template_path = pathlib.Path(os.getenv('CONSENT_TEMPLATE', 'consent/templates/index.html'))
+    template = Template(template_path.read_text())
+    contents = template.render(template_args)
     return HttpResponse(contents)
 
 
@@ -51,7 +54,7 @@ def accept_consent(request: HttpRequest, consent_requ_json_b64: str, hmac_remote
     if len(Consent.objects.filter(entityID=consent_request['entityid'],
                                   consentid=consent_request['consentid'], revoked_at=None)) == 0:
         consent = Consent()
-        # skip input sanitazation - we trust the signer
+        # skip input sanitization - we trust the signer
         consent.displayname = consent_request['displayname']
         consent.entityID = consent_request['entityid']
         consent.consentid = consent_request['consentid']

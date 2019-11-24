@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<meta charset="utf-8">
+<head>
+    <title>Consent</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/custome.css">
+
+</head>
+<body dir="ltr" class="body">
+    <div id="fullPage" style="display: block;">
+        <div id="contentWrapper" class="float">
+            <div id="content">
+
+                <div id="header">
+                    <a href="https://www.wko.at/" id="logo"><img class="logoImage" id="companyLogo" src="images/logo.png" alt="WKO.at"></a>
+                    <ul class="global-navbar"><li id="header-help"><a id="helpDesk" class="pageLink" href="https://www.wko.at/service/dienststelle.html?orgid=22807" target="_blank">Hilfe</a></li></ul>
+                </div>
+
+                <div id="workArea" style="margin-bottom: 0px">
+                    <div id="authArea" class="groupMargin">
+                        <div id="loginArea">
+                            <div id="loginMessage" class="groupMargin">
+                                <h4>{{ title }} {{ sp }} ({{ entityid }})</h4>
+                            </div>
+                            <div class="col-md-6" style="margin-left: 20px;">
+                                <ul>
+                                    {% for attr in attr_list %}
+                                        <li>{{ attr }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div style="margin-top: 20px; margin-bottom: 20px;">
+                                <h4>
+                                    Datenweitergabe: <br /><br />
+                                    <a class="btn btn-primary customButton" role="button" href="/accept_consent/{{ consent_requ_json_b64 }}/{{ hmac_remote }}/">Einwilligen</a>
+                                    <a class="customButton" role="button" href="/decline_consent/">Ablehnen</a>
+                                </h4>
+                            </div>
+                            <p>{{ purpose }}</p>
+
+                        </div>
+                        <section id="references">
+                            <p>{{ revocation }}</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <div id="footerLinks" class="floatReverse">
+                    <div><a id="home" class="pageLink" href="https://www.wko.at/">WKO.at</a><a id="privacy" class="pageLink" href="https://wko.at/wkis/offenlegung/" target="_blank">Offenlegung</a><span id="copyright">© 2019 WKO</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

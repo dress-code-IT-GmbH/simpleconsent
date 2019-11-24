@@ -48,6 +48,10 @@ The single image containers both the django app and the Shibboleth SP.
 
 Set DEBUG = False in settings.py for production environments.
 
+Use the CONSENT_TEMPLATE environment variable to use a custom template for display_request stored outside the project.
+Templates are loaded for the jinja2 template engine (see consent/view.py).
+
+
 
 ## API
 

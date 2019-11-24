@@ -48,7 +48,7 @@ CONSENT_BOILERPLATE_TEXT = {
     'revocation': 'Die Einwilligung kann jederzeit widerrufen werden. '
                   'Bitte kontaktieren Sie dazu das Support Team der WKO Inhouse unter QuS@inhouse.wko.at '
                   'und der Angabe Ihres Namens und Ihrer Benutzerkennung. '
-                  'Wird die Einwilligun widerrufen, erfolgt beim nächsten Login die Abfrage der Einwilligung.',
+                  'Wird die Einwilligung widerrufen, erfolgt beim nächsten Login die Abfrage der Einwilligung.',
     'title': 'Attributfreigabe für die Anmeldung an',
 }
 

@@ -4,6 +4,7 @@
 .idea/
 .tox/
 __pycache__
+consent/tests/testout/display_consent*
 data/db.sqllite3
 simpleconsent/database_is_initialized
 work/

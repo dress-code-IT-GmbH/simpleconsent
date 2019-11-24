@@ -12,6 +12,7 @@ setup(
     install_requires=[
         "django<3.0",   # avoid 3.0 alpha release
         "django-basicauth",
+        "jinja2",  # why not django templates? Make it easy to load template from random filesystem path
         "requests",
     ],
     zip_safe=False,
