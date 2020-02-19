@@ -10,7 +10,7 @@ setup(
     url='https://github.com/identinetics/simpleconsent',
     packages=['simpleconsent', ],
     install_requires=[
-        "django<3.0",   # avoid 3.0 alpha release
+        "django >=2.2.10, <3.0",  # avoid 3.0 alpha release
         "django-basicauth",
         "jinja2",  # why not django templates? Make it easy to load template from random filesystem path
         "requests",
