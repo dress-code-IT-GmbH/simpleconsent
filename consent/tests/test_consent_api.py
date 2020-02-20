@@ -1,31 +1,24 @@
 import base64
 import json
-import os
 import requests
-
-import django
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "simpleconsent.settings_unittest")
-django.setup()
-from django.conf import settings
 from consent.models import Consent
-from consent.tests.setup_db_consent import load_testset1, setup_db_tables_consent
+import pytest
+from django.core.management import call_command
+from pathlib import Path
 
-# prepare database fixture (a temporary in-memory database is created for this test)
-django.setup()
-assert 'consent' in settings.INSTALLED_APPS
-setup_db_tables_consent()
-load_testset1()
-assert len(Consent.objects.all()) > 0, 'No gvOrganisation data found'
+consent_data = Path('consent/tests/fixtures/testset1.json')
 
-origin = 'http://127.0.0.1:8017'
+
+
 apicred = ('admin', 'adminadmin')
 
 
-def test_verify_existing():
+@pytest.mark.django_db()
+def test_verify_existing(live_server):
     entityid = 'testsp'
     entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
     consentid = '398761324012830460876'
-    url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
+    url = f"{live_server}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
     response = requests.request(method='GET', url=url)
     assert response.status_code == 401
     response = requests.request(method='GET', url=url, auth=apicred)
@@ -33,21 +26,34 @@ def test_verify_existing():
     assert json.loads(response.text) is True
 
 
-def test_verify_non_existing():
+@pytest.mark.django_db()
+def not_test_verify_existing_second(live_server):
+    entityid = 'testsp'
+    entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
+    consentid = '398761324012830460876'
+    url = f"{live_server}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
+    response = requests.request(method='GET', url=url)
+    assert response.status_code == 401
+    response = requests.request(method='GET', url=url, auth=apicred)
+    assert response.status_code == 200
+    assert json.loads(response.text) is True
+
+
+def test_verify_non_existing(live_server):
     entityid = 'xx'
     entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
     consentid = 'test_inv_1230982450987'
-    url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
+    url = f"{live_server}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
     response = requests.request(method='GET', url=url, auth=apicred)
     assert response.status_code == 200
     assert json.loads(response.text) is False
 
 
-def test_verify_revoked():
+def test_verify_revoked(live_server):
     entityid = 'https://sp1.example.com/sp'
     entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
     consentid = 'test_invalid'
-    url = f"{origin}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
+    url = f"{live_server}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
     response = requests.request(method='GET', url=url, auth=apicred)
     assert response.status_code == 200
     assert json.loads(response.text) is False
