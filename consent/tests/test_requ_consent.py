@@ -10,17 +10,7 @@ import django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "simpleconsent.settings_unittest")
 django.setup()
 from django.conf import settings
-from consent.models import Consent
-from consent.tests.setup_db_consent import load_testset1, setup_db_tables_consent
 
-# prepare database fixture (a temporary in-memory database is created for this test)
-django.setup()
-assert 'consent' in settings.INSTALLED_APPS
-setup_db_tables_consent()
-load_testset1()
-assert len(Consent.objects.all()) > 0, 'No gvOrganisation data found'
-
-origin = 'http://127.0.0.1:8017'
 
 CONSENTID = 'test_inv_2'
 CONSENT_REQUEST = {
@@ -34,11 +24,11 @@ CONSENT_REQUEST = {
 
 
 # call this test twice: once default, and another time when simeplconsent has been started with CONSENT_TEMPLATE set
-def test_display_consent_request():
+def test_display_consent_request(live_server):
     consent_request_json = json.dumps(CONSENT_REQUEST)
     hmac_str = hmac.new(settings.PROXY_HMAC_KEY, consent_request_json.encode('utf-8'), hashlib.sha256).hexdigest()
     consent_request_json_b64 = base64.urlsafe_b64encode(consent_request_json.encode('ascii'))
-    url = f"{origin}/request_consent/{consent_request_json_b64.decode('ascii')}/{hmac_str}/"
+    url = f"{live_server}/request_consent/{consent_request_json_b64.decode('ascii')}/{hmac_str}/"
     response = requests.request(method='GET', url=url)
     assert response.status_code == 200
     Path('consent/tests/testout/display_consent.html').write_text(response.content.decode('utf-8'))
