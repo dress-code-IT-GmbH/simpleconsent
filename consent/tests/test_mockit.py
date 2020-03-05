@@ -16,3 +16,17 @@ def test_mokit():
     assert(len(stored.displayname) == stored.SP_DISPLAYNAME_LENGTH)
     assert(len(stored.sp_displayname) == stored.SP_DISPLAYNAME_LENGTH)
     return None
+
+
+def test_pre_save_clean():
+    nc = Consent(
+        uid='1234',
+        displayname='This is a much too long displayname to be displayed in a sensible way because it is too long',
+        consentid='Foobar',
+        entityID='Foobar',
+        sp_displayname='This is a much too long displayname to be displayed in a sensible way because it is too long',
+    )
+    nc.pre_save_clean()
+    assert(len(nc.displayname) == nc.SP_DISPLAYNAME_LENGTH)
+    assert(len(nc.sp_displayname) == nc.SP_DISPLAYNAME_LENGTH)
+    return None

@@ -24,6 +24,20 @@ class Consent(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Einwilligung vom', )
     revoked_at = models.DateTimeField(null=True, blank=True, auto_now=False, verbose_name='Zurückziehung vom', )
 
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        self.pre_save_clean()
+        super().save(force_insert, force_update, using, update_fields)
+
+    def pre_save_clean(self):
+        for f in self._meta.fields:
+            if isinstance(f, models.CharField):
+                value = getattr(self, f.attname)
+                value_short = value[:f.max_length]
+                setattr(self, f.attname, value_short)
+
+
+
+
     def __str__(self):
         return self.entityID
 
