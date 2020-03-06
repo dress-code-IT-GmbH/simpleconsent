@@ -1,59 +1,62 @@
+from django.test import TestCase
 import base64
 import json
-import requests
-from consent.models import Consent
-import pytest
-from django.core.management import call_command
-from pathlib import Path
-
-consent_data = Path('consent/tests/fixtures/testset1.json')
+from django.test import Client
 
 
+class ConsentCleanintTestCase(TestCase):
+    fixtures = ['consent/tests/fixtures/testset1.json']
 
-apicred = ('admin', 'adminadmin')
+    @staticmethod
+    def _basic_auth_headers():
+        headers = {
+            'HTTP_AUTHORIZATION': 'Basic ' + base64.b64encode(b'admin:adminadmin').decode("ascii")
+        }
+        return headers
 
+    @staticmethod
+    def _consent_url(entityid, consentid):
+        entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
+        url = f"/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
+        return url
 
-@pytest.mark.django_db()
-def test_verify_existing(live_server):
-    entityid = 'testsp'
-    entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
-    consentid = '398761324012830460876'
-    url = f"{live_server}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
-    response = requests.request(method='GET', url=url)
-    assert response.status_code == 401
-    response = requests.request(method='GET', url=url, auth=apicred)
-    assert response.status_code == 200
-    assert json.loads(response.text) is True
+    def test_verify_existing(self):
+        c = Client()
 
+        entityid = 'testsp'
+        consentid = '398761324012830460876'
 
-@pytest.mark.django_db()
-def not_test_verify_existing_second(live_server):
-    entityid = 'testsp'
-    entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
-    consentid = '398761324012830460876'
-    url = f"{live_server}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
-    response = requests.request(method='GET', url=url)
-    assert response.status_code == 401
-    response = requests.request(method='GET', url=url, auth=apicred)
-    assert response.status_code == 200
-    assert json.loads(response.text) is True
+        url = self._consent_url(entityid, consentid)
+        response = c.get(path=url)
+        self.assertEqual(response.status_code, 401)
 
+        headers = self._basic_auth_headers()
+        response = c.get(path=url, **headers)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(json.loads(response.content), True)
 
-def test_verify_non_existing(live_server):
-    entityid = 'xx'
-    entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
-    consentid = 'test_inv_1230982450987'
-    url = f"{live_server}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
-    response = requests.request(method='GET', url=url, auth=apicred)
-    assert response.status_code == 200
-    assert json.loads(response.text) is False
+    def test_verify_non_existing(self):
+        c = Client()
 
+        entityid = 'xx'
+        consentid = 'test_inv_1230982450987'
+        url = self._consent_url(entityid, consentid)
 
-def test_verify_revoked(live_server):
-    entityid = 'https://sp1.example.com/sp'
-    entityid_b64 = base64.urlsafe_b64encode(entityid.encode('ascii'))
-    consentid = 'test_invalid'
-    url = f"{live_server}/has_consent/{entityid_b64.decode('ascii')}/{consentid}/"
-    response = requests.request(method='GET', url=url, auth=apicred)
-    assert response.status_code == 200
-    assert json.loads(response.text) is False
+        headers = self._basic_auth_headers()
+
+        response = c.get(path=url, **headers)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(json.loads(response.content), False)
+
+    def test_verify_revoked(self):
+        c = Client()
+
+        entityid = 'https://sp1.example.com/sp'
+        consentid = 'test_invalid'
+        url = self._consent_url(entityid, consentid)
+
+        headers = self._basic_auth_headers()
+
+        response = c.get(path=url, **headers)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(json.loads(response.content), False)
