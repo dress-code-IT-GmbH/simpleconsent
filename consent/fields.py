@@ -11,5 +11,6 @@ class AutocutCharField(models.CharField):
 
     def get_prep_value(self, value):
         value = super().get_prep_value(value)
-        value = self._cut_by_max_length(value)
+        if value:
+            value = self._cut_by_max_length(value)
         return self.to_python(value)
