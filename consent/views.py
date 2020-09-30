@@ -37,6 +37,7 @@ def display_consent_request(request: HttpRequest, consent_requ_json_b64: str, hm
     template_args['purpose'] = settings.CONSENT_BOILERPLATE_TEXT['purpose']
     template_args['revocation'] = settings.CONSENT_BOILERPLATE_TEXT['revocation']
     template_args['title'] = settings.CONSENT_BOILERPLATE_TEXT['title']
+    template_args['consent_attrs'] = consent_request['consent_attrs']
     template_path = pathlib.Path(os.getenv('CONSENT_TEMPLATE', 'consent/templates/index.html'))
     template = Template(template_path.read_text())
     contents = template.render(template_args)

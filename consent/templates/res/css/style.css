@@ -1,0 +1,588 @@
+/* Font: DIN Web Pro */
+@font-face {
+    font-family: 'DIN Web Pro';
+    src: url("../fonts/DINWebPro.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+	font-family: 'DIN Web Pro';
+	src: url("../../../adfsutility/Content/LoginTheme/fonts/DINWebPro-Italic.woff") format("woff");
+	font-weight: 400;
+	font-style: italic;
+}
+@font-face {
+    font-family: 'DIN Web Pro';
+    src: url("../fonts/DINWebPro-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+	font-family: 'DIN Web Pro';
+	src: url("../../../adfsutility/Content/LoginTheme/fonts/DINWebPro-MediumItalic.woff") format("woff");
+	font-weight: 500;
+	font-style: italic;
+}
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+	background-color: #304c59;
+	color: #304c59;
+	font-weight: normal;
+	font-family: 'DIN Web Pro', Helvetica, Arial, sans-serif;
+	font-size: 0.9em;
+	line-height: 1.5;
+}
+#noScript {
+	margin: 16px;
+	color: Black;
+}
+@-ms-viewport {
+	width: device-width;
+}
+@-moz-viewport {
+	width: device-width;
+}
+@-o-viewport {
+	width: device-width;
+}
+@-webkit-viewport {
+	width: device-width;
+}
+@viewport {
+	width: device-width;
+}
+/* Theme layout styles */
+#fullPage,
+#brandingWrapper {
+	display: none;
+}
+#contentWrapper {
+	position: relative;
+	overflow: auto;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 780px;
+	background-color: inherit;
+	margin: 0 auto;
+	float: none;
+}
+#header {
+	padding: 25px 10px 12px;
+}
+img {
+	max-width: 100%;
+}
+#workArea {
+	padding: 20px 10px;
+	background: #fff;
+	clear: both;
+}
+#companyLogo {
+	width: auto;
+	height: auto;
+	max-height: 34px;
+	max-width: 220px;
+}
+.global-navbar {
+	float: right;
+	list-style: none;
+	font-size: 1.1em;
+}
+.global-navbar li {
+	float: left;
+}
+.global-navbar li a {
+	padding: 11px 15px 5px;
+	display: inline-block;
+	color: #fff;
+}
+#header-help a {
+    background: url('../images/icon-help.svg') no-repeat right 12px / 16px 16px;
+    padding-right: 23px
+}
+#authArea,
+#introduction {
+	margin-bottom: 5px;
+}
+#loginForm {
+	position: relative;
+}
+.regList {
+	list-style: none;
+}
+    a.arrow,
+    .regList a,
+    #submissionArea a {
+        background: url('arrow-right-red.svg') no-repeat 0 6px / 12px 12px;
+        padding: 3px 0 3px 16px;
+        display: inline-block;
+    }
+#references {
+	clear: both;
+	padding: 28px 10px 15px;
+	margin: 25px -10px -25px;
+	background: #eaeaea;
+	font-size: 0.9em;
+}
+/* BEGINN Radios and Checkboxes */
+/* remove standard-styles */
+input[type='checkbox'],
+input[type='radio'] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
+	border-radius: 0;
+	font-size: 1em;
+	width: 100%;
+}
+/* graceful degradation for ie8 */
+input[type='checkbox'],
+input[type='radio'] {
+	width: auto;
+	float: left;
+	margin-right: .75em;
+	background: transparent;
+	border: none;
+}
+input[type='checkbox']:checked,
+input[type='checkbox']:not(:checked),
+input[type='radio']:checked,
+input[type='radio']:not(:checked) {
+	background: transparent;
+	position: absolute;
+	opacity: 0;
+	margin: 0;
+	padding: 0;
+}
+input[type='checkbox'] + *,
+input[type='radio'] + * {
+	cursor: pointer;
+}
+input[type='checkbox']:checked + *::before,
+input[type='checkbox']:not(:checked) + *::before,
+input[type='radio']:checked + *::before,
+input[type='radio']:not(:checked) + *::before {
+	content: '';
+	display: inline-block;
+	width: 17px;
+	height: 17px;
+	position: relative;
+	top: 4px;
+	border: 1px solid #bbb;
+	background: #fff;
+	margin: 0 0.5em 0 0;
+	box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, .1);
+}
+input[type=radio]:checked + *::before,
+input[type=radio]:not(:checked) + *::before {
+	border-radius: 30px;
+}
+input[type='checkbox'] + *:hover::before,
+input[type='radio'] + *:hover::before {
+	background: #ddd;
+	box-shadow: inset 0 0 0 2px #fff;
+}
+input[type='checkbox']:checked + *::before,
+input[type='radio']:checked + *::before {
+	background: #e10512;
+	box-shadow: inset 0 0 0 2px #fff;
+}
+input[type='checkbox'] + *:focus::before,
+input[type='radio'] + *:focus::before {
+	border-color: #304c59;
+	box-shadow: 0 0 0 1px #eaeaea, inset 0 0 0 2px white;
+}
+/* ENDE Radios and Checkboxes */
+/* Text-inputs */
+label,
+label.hidden {
+	display: block;
+}
+input[type='checkbox'] + label {
+	display: inline-block;
+}
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+	box-sizing: border-box;
+	height: 37px;
+	padding: 7px 14px 5.4px;
+	margin-bottom: 8px;
+	font-size: 1em;
+	line-height: 1.42857;
+	color: #536b78;
+	border: 1px solid #8c8c8c;
+	border-radius: 0;
+	-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='password']:focus {
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(140, 140, 140, 0.5);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(140, 140, 140, 0.5);
+}
+span.submit,
+input[type="submit"] {
+	border: 1px solid #e20613;
+	background: #e20613;
+	color: #fff;
+	display: inline-block;
+	cursor: pointer;
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	user-select: none;
+	padding: 7px 14px 4px;
+	margin-bottom: 8px;
+	font-size: 1rem;
+	line-height: 1.5;
+	height: inherit;
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+span.submit:hover,
+span.submit:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+	background: #b0050f;
+}
+span.submit.btn-xs,
+input[type="submit"].btn-xs {
+	padding: 3.2px 5px 2.25px 5px;
+	font-size: 0.8rem;
+}
+.allLoginsCont {
+	padding-top: 10px;
+}
+.choices {
+	font-size: 0.9em;
+	padding-left: 15px;
+}
+#footer {
+	height: 40px;
+	padding: 5px 0 20px;
+	margin-bottom: 20px;
+	position: relative;
+	color: #fff;
+	font-size: 0.78em;
+}
+#footerLinks {
+	text-align: center;
+	margin: 0 auto;
+	line-height: 1;
+	font-size: 14px;
+	float: none;
+	padding-top: 10px;
+}
+#footerLinks a {
+	color: #fff;
+}
+#footerLinks span {
+	padding-left: 8px;
+	margin-left: 8px;
+	border-left: 1px solid #999;
+}
+#home {
+	display: none;
+}
+/* Common content styles */
+.clear {
+	clear: both;
+}
+.float {
+	float: left;
+}
+.floatReverse {
+	float: right;
+}
+.indent {
+	margin-left: 16px;
+}
+.indentNonCollapsible {
+	padding-left: 16px;
+}
+.hidden {
+	display: none;
+}
+.notHidden {
+	display: inherit;
+}
+.error {
+	color: #e20613;
+}
+.actionLink {
+	margin-bottom: 8px;
+	display: block;
+}
+ul {
+	list-style-type: disc;
+}
+a {
+	color: #e20613;
+	text-decoration: none;
+	background-color: transparent;
+}
+a:hover,
+a:focus {
+	text-decoration: underline;
+}
+p {
+	margin-bottom: 8px;
+}
+strong,
+b {
+	font-weight: 500;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 8px;
+	font-weight: 500;
+	line-height: 1.1;
+}
+.submitMargin {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.topFieldMargin {
+	margin-top: 8px;
+}
+.fieldMargin {
+	margin-bottom: 8px;
+}
+.fieldMargin.error {
+	margin-bottom: 3px;
+	font-size: inherit;
+}
+.groupMargin {
+	margin-bottom: 18px;
+}
+.sectionMargin {
+	margin-bottom: 64px;
+}
+.block {
+	display: block;
+}
+.autoWidth {
+	width: auto;
+}
+.fullWidth {
+	width: 342px;
+}
+.fullWidthIndent {
+	width: 326px;
+}
+.smallTopSpacing {
+	margin-top: 15px;
+}
+.mediumTopSpacing {
+	margin-top: 25px;
+}
+.largeTopSpacing {
+	margin-top: 35px;
+}
+.smallBottomSpacing {
+	margin-bottom: 5px;
+}
+.mediumBottomSpacing {
+	margin-bottom: 15px;
+}
+.largeBottomSpacing {
+	margin-bottom: 25px;
+}
+h1,
+.giantText {
+	font-size: 2.2em;
+}
+h2,
+.bigText {
+	font-size: 1.4em;
+	font-weight: 500;
+}
+h3 {
+	font-size: 1.2em;
+	font-weight: 500;
+}
+h4,
+#references h2 {
+	font-size: 1em;
+	font-weight: 700;
+}
+h5,
+.normalText {
+	font-size: 1em;
+}
+.smallText {
+	font-size: 0.9em;
+}
+.tinyText {
+	font-size: 0.8em;
+}
+.hint {
+	color: #999;
+}
+.emphasis {
+	font-weight: 700;
+	color: #2f2f2f;
+}
+.smallIcon {
+	height: 20px;
+	padding-right: 12px;
+	vertical-align: middle;
+}
+.largeIcon {
+	height: 48px;
+	width: 48px;
+	vertical-align: middle;
+}
+.largeTextNoWrap {
+	height: 48px;
+	display: table-cell; /* needed when in float*/
+	vertical-align: middle;
+	/*white-space: nowrap;*/
+	font-size: 1.2em;
+}
+#hrdArea #openingMessage {
+	margin-bottom: 30px;
+}
+#hrdArea .idp img {
+	display: none;
+}
+#hrdArea .idp {
+	padding-left: 48px;
+	background-size: auto 100%;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+}
+#hrdArea .idp.home {
+	background-image: url(../images/idp/i-zugangsdaten.png);
+}
+#hrdArea .idp.windows {
+	background-image: url(../images/idp/i-windows.png);
+}
+#hrdArea .idp.citizencard {
+	background-image: url(../images/idp/i-buergerkarte.png);
+}
+#hrdArea .idp.usp {
+	background-image: url(../images/idp/i-usp.png);
+}
+.idp {
+	height: 48px;
+	width: 325px;
+	max-width: 100%;
+	margin-bottom: 10px;
+	clear: both;
+	cursor: pointer;
+	display: none;
+}
+.idp:hover {
+	background-color: #eaeaea;
+}
+.idpDescription {
+	width: 100%;
+}
+#infoAlt {
+	margin: 20px 0;
+}
+.form-group {
+	position: relative;
+}
+.divExplain {
+	display: none;
+}
+.divExplain .header {
+	font-weight: bold;
+}
+.divExplain .secure {
+	color: #008b00;
+}
+.divExplain .unsecure {
+	color: #e20613;
+}
+@media (min-width: 321px) {
+	#contentWrapper {
+		padding: 0 10px;
+	}
+
+	#header {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	#companyLogo {
+		max-height: 41px;
+	}
+
+	#workArea,
+	#references {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	#references {
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+}
+@media (min-width: 768px) {
+	.regList {
+		position: absolute;
+		right: 15%;
+		top: 134px;
+	}
+
+	#workArea,
+	#references {
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+
+	#references {
+		margin-left: -25px;
+		margin-right: -25px;
+	}
+
+	.divExplain {
+		position: absolute;
+		right: 0;
+		top: 16px;
+		width: 350px;
+	}
+	.fieldMargin.error {
+		max-width: 342px;
+	}
+
+}
+@media (max-width: 767px) {
+	#contentWrapper {
+		max-width: 520px;
+	}
+
+	.fullWidth {
+		width: 100%;
+	}
+
+	.divExplain {
+		background: #eaeaea;
+		border: 1px solid #8c8c8c;
+		padding: 10px 10px 8px;
+		margin: 0 0 5px;
+	}
+
+	.footer__meta__navlist > li:nth-child(4) {
+		border-left: 0;
+	}
+}
