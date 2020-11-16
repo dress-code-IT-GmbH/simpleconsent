@@ -6,7 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1">
     <link rel="stylesheet" type="text/css" href="/res/css/style.css">
     <link rel="stylesheet" type="text/css" href="/res/css/custome.css">
-
+    <style>
+ul.consentattrib label {
+	background-color: beige;
+	width: 15em;
+	display: inline-block;
+}
+ul.consentattrib span {
+	background-color: aliceblue;
+}
+ul.consentattrib {
+	list-style-type: none;
+}
+    </style>
 </head>
 <body dir="ltr" class="body">
     <div id="fullPage" style="display: block;">
@@ -25,11 +37,15 @@
                                 <h4>{{ title }} {{ sp }} ({{ entityid }})</h4>
                             </div>
                             <div class="col-md-6" style="margin-left: 20px;">
-                                <ul>
-                                    {% for attr in attr_list %}
-                                        <li>{{ attr }}</li>
+                                {% for groupname in consent_attrs %}
+                                <h4>{{ groupname }}</h4>
+                                <ul class="consentattrib">
+                                    {% for attr in consent_attrs[groupname] %}
+                                    <li><label>{{ attr.trans }}:</label><span>{{ attr.val }}</span></li>
                                     {% endfor %}
                                 </ul>
+                                </br>
+                                {% endfor %}
                             </div>
                             <div style="margin-top: 20px; margin-bottom: 20px;">
                                 <h4>
