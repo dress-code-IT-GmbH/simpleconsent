@@ -1,4 +1,6 @@
 # this file contains secret keys. Protect file or insert values from environment
+# this comment exists as a reminder of dockers inability to correctly copy files
+# if they are equal!
 
 import os
 
@@ -12,7 +14,7 @@ SECRET_KEY = '66_!!m)!ks&v)2cjy)m6+uhtm%0jz7*1+tu@whlebrqsb@b##z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', 'wpvconsent.vnet', 'consent.wko.at', 'consent.qss.wko.at']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', 'wpvconsent.vnet', 'consent.wko.at', 'consent.qss.wko.at', 'consent.test.wpv.portalverbund.at']
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
